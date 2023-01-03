@@ -18,7 +18,7 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "author": "mitesh",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
