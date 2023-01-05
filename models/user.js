@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Todo, {
-        foreignKey: "userId",
+        foreignKey: "userID",
       });
     }
   }
@@ -20,9 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Please provide a firstName",
-          },
+          notNull: true,
         },
       },
       lastName: DataTypes.STRING,
@@ -30,12 +28,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: {
-            msg: "Please provide email_id",
-          },
+          notNull: true,
         },
       },
-      password: DataTypes.STRING,
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: true,
+        },
+      },
     },
     {
       sequelize,
